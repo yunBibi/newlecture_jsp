@@ -1,4 +1,4 @@
-package com.newlecture.filter;
+package com.newlecture.web.filter;
 
 import java.io.IOException;
 

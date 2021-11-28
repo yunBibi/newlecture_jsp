@@ -13,12 +13,20 @@ import javax.servlet.http.HttpServletResponse;
 public class AddTest extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
 		
-		int x = Integer.parseInt(request.getParameter("x"));
-		int y = Integer.parseInt(request.getParameter("x"));
-
-		out.println(x+y);
+		String x_ = request.getParameter("x");
+		String y_ = request.getParameter("y");
 		
+		int x = 0;
+		int y = 0;
+		
+		if(!x_.equals("")) x = Integer.parseInt(x_);
+		if(!y_.equals("")) y = Integer.parseInt(y_);
+		
+		int result = x+y;
+		
+		response.getWriter().printf("result is %d\n", result);
 	}
 }
